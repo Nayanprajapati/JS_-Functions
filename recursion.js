@@ -1,22 +1,27 @@
-// function hello() {
-//     console.log("hello")
-//     hello()
-// }
+// in this stage the function calls it self recursively until the condition is broke down
+function hello() {
+  console.log("hello");
+  hello();
+}
 
 // hello();
 
-// function coding(num) {
-//   if (num === 7) {
-//     console.log("doing the work");
-//     return;
-//   } else {
-//     coding(num +1);
-//     console.log("the work is done");
-//     return;
-//   }
-// }
+// count number
+const countNum = (num = 1) => {
+  while (num <= 10) {
+    console.log(num);
+    num++;
+  }
+};
 
-// coding(5);
+// fibonacci
+const fib = (num, array = [0, 1]) => {
+  if (num <= 2) return array;
+  const [nextToLast, last] = array.slice(-2);
+  return fib(num - 1, [...array, nextToLast + last]);
+};
+
+console.log(fib(12));
 
 // Recursive function to list all files
 function listFiles(folder) {
@@ -54,22 +59,3 @@ const fileSystem = {
 };
 
 listFiles(fileSystem);
-
-
-// count number
-const countNum = (num = 1) => {
-  while (num <= 10) {
-    console.log(num);
-    num++;
-  }
-};
-
-
-// fibonacci
-const fib = (num, array = [0, 1]) => {
-  if (num <= 2) return array;
-  const [nextToLast, last] = array.slice(-2);
-  return fib(num - 1, [...array, nextToLast + last]);
-};
-
-console.log(fib(12));
