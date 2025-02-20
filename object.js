@@ -11,7 +11,7 @@
 // console.log(obj);
 // console.log(typeof "42");
 
-// modifying the output by aading people.country 
+// modifying the output by aading people.country
 
 const people = {
   name: "ram",
@@ -21,24 +21,27 @@ const people = {
 
 people.country = "nepal";
 console.log(people);
+
 // example shallow copy using boject.assign()
 
-// const original = { name: "Alice", address: { city: "New York" } };
-// const shallowCopy = Object.assign({}, original);
+const original = { name: "Alice", address: { city: "New York" } };
+const shallowCopy = Object.assign({}, original);
 
-// shallowCopy.name = "Bob";
-// shallowCopy.address.city = "Los Angeles";
+shallowCopy.name = "Bob";
+shallowCopy.address.city = "Los Angeles";
 
-// console.log(original.name); // "Alice" (✅ Unchanged)
-// console.log(original.address.city); // "Los Angeles" (❌ Changed due to shared reference)
+console.log(original.name); // "Alice" (Unchanged)
+console.log(original.address.city); // "Los Angeles" ( Changed due to shared reference)
 
-// const org = { name: "nayan", address: { city: "bhaktapur" } };
-// const shallowCopy1 = { ...org };
+const org = { name: "nayan", address: { city: "bhaktapur" } };
+const shallowCopy1 = { ...org };
 
-// shallowCopy1.address.city = "kathmandu";
+shallowCopy1.address.city = "kathmandu";
 
-// console.log(shallowCopy1.address.city);
-// console.log(org);
+console.log(shallowCopy1.address.city);
+console.log(org);
+
+
 
 // // deep copy
 
@@ -53,4 +56,23 @@ console.log(people);
 
 // deepCopy.address.city = "Los Angeles";
 
-// console.log(original.address.city); // ✅ "New York" (Unchanged)
+// console.log(original.address.city); // "New York" (Unchanged)
+
+
+
+
+// Exersize from programizChallenge:
+// Write a function to create a simple flash card.
+// You are given two strings question and answer.
+// Return an object with the question and answer paired together.
+// For example, if question = "What is the capital of France?" and, answer = "Paris", the expected output is { Question: "What is the capital of France?", Answer: "Paris" }.
+// 
+function createFlaskCard(question, answer) {
+  return {
+    Question: question,
+    Answer: answer,
+  };
+}
+
+const flaskCard = createFlaskCard("What is the capital of France?", "Paris");
+console.log(flaskCard);
