@@ -38,13 +38,13 @@
 
 // Fibonacci(12);
 
-const fib = (num, array = [0, 1]) => {
-  if (num <= 2) return array;
-  const [nextToLast, last] = array.slice(-2);
-  return fib(num - 1, [...array, nextToLast + last]);
-};
+// const fib = (num, array = [0, 1]) => {
+//   if (num <= 2) return array;
+//   const [nextToLast, last] = array.slice(-2);
+//   return fib(num - 1, [...array, nextToLast + last]);
+// };
 
-console.log(fib(32));
+// console.log(fib(32));
 
 // const Fibonacci = (num, array = [0, 1]) => {
 //   // ✅ Fix: Correct function syntax
@@ -56,3 +56,15 @@ console.log(fib(32));
 // };
 
 // console.log(Fibonacci(12)); // ✅ Fix: Store and log the result
+
+let obj = {
+  name: "Nayan",
+  age: 20,
+  gender: "male",
+  greet: function () {
+    console.log("Hello " + this.name);
+  },
+};
+obj.greet();
+console.log(obj);
+console.log(typeof "42");
