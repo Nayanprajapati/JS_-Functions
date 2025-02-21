@@ -1,0 +1,3 @@
+for (let key in person) → Iterates over the keys (name, age, city).
+${key}: ${person[key]} → Retrieves both keys and values.
+Best Used For: Iterating over object properties.

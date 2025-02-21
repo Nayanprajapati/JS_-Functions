@@ -1,0 +1,4 @@
+Object.assign({}, original) creates a shallow copy of the original object.
+Top-level properties like name are copied independently, so changing shallowCopy.name = "Bob" does not affect original.name.
+Nested objects (like address) are still referenced, meaning both shallowCopy.address and original.address point to the same memory location.
+When modifying shallowCopy.address.city = "Los Angeles", it also modifies original.address.city.

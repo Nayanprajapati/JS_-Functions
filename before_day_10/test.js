@@ -57,14 +57,21 @@
 
 // console.log(Fibonacci(12)); // ✅ Fix: Store and log the result
 
-let obj = {
+// let obj = {
+//   name: "Nayan",
+//   age: 20,
+//   gender: "male",
+//   greet: function () {
+//     console.log("Hello " + this.name);
+//   },
+// };
+// obj.greet();
+// console.log(obj);
+// console.log(typeof "42");
+
+const obj = {
   name: "Nayan",
-  age: 20,
-  gender: "male",
-  greet: function () {
-    console.log("Hello " + this.name);
-  },
 };
-obj.greet();
+let user = obj;
+user.name = "ram";
 console.log(obj);
-console.log(typeof "42");

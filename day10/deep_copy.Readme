@@ -1,0 +1,4 @@
+JSON.stringify(original) converts the object into a JSON string.
+JSON.parse() then converts that string back into a completely new object.
+All properties, including nested objects, are fully copied.
+Modifications in deepCopy do not affect original, making it an independent copy.
