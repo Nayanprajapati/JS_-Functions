@@ -23,6 +23,8 @@ console.log(rest);   // ✅ Output: [30, 40, 50]
 //...rest collects the remaining values into an array.
 
 
+
+
 // Rest Operator in Object Destructuring
 
 const person = { name: "Alice", age: 25, city: "New York" };
