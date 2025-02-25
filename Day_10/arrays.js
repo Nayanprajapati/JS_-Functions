@@ -5,7 +5,7 @@ let ansArray = arry.map((number) => {
 });
 console.log(ansArray);
 
- /*.map() creates a new array by applying the callback function to each element of the original array.
+/*.map() creates a new array by applying the callback function to each element of the original array.
   It does NOT modify the original array; instead, it returns a new array.*/
 
 // adding plus 1 and using index
@@ -33,13 +33,11 @@ let evenArray = aary.filter((number) => {
 
 console.log(evenArray);
 
- /*
+/*
     The .filter() method iterates through the aary array, checking if each number is
      even using number % 2 === 0. If true, the number is included in the new array; 
      otherwise, it is excluded. This ensures only even numbers are retained.
  */
-
-
 
 //  using filter to find string
 let arr = [1, 2, "Nayan", "kathmandu", null];
@@ -61,7 +59,6 @@ The .filter() method iterates through each element in arr, checking if typeof va
 return typeof value === "string";
 */
 
-
 // // using reduce
 let array = [100, 200, 300, 400];
 let answ = array.reduce((acc, curr) => {
@@ -76,9 +73,6 @@ It starts with an initial value of 0 and adds each element (curr) to the accumul
 This process continues for every element in the array, resulting in a final sum of 1000.
 */
 
-
-
-
 // using short for shorting in accending order
 let arra = [1, 2, 5, 6, 4];
 arra.sort();
@@ -88,8 +82,6 @@ console.log(arra);
 let array3 = [1, 2, 5, 9, 6, 4];
 array3.sort((a, b) => b - a); // Sorting in descending order
 console.log(array3);
-
-
 
 //  using forEach
 
@@ -121,3 +113,4 @@ which initializes sum = 0, iterates over the array using .forEach(), adds each v
 and returns the final sum. The function is called, and its result is stored in totalSum, which is then logged to the console.
 
 */
+ 
