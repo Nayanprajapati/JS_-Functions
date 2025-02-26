@@ -25,4 +25,3 @@ console.log(totalSalary);
 //  Sort Employees by Age (.sort())
 const sortedEmployees = employees.sort((a, b) => a.age - b.age);
 console.log(sortedEmployees);
-
