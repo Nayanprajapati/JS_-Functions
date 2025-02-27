@@ -89,36 +89,33 @@ async function fetchData() {
 
 fetchData();
 
-// 7. try...catch...finally in a Login API
+
+// 7.try...catch...finally Example for Login API
 /*
-Ensures error handling in API requests.
-Throws custom errors for missing credentials.
-Logs every login attempt in the finally block.
+This code simulates a login process by comparing input credentials with predefined values.
+ It uses a try...catch...finally block to handle potential errors, such as missing or incorrect credentials.
+  If the credentials match, it logs a success message; otherwise, it throws and catches an error with a descriptive message.
+   The finally block ensures that a completion message is logged after every login attempt, regardless of the outcome.
 */
-const express = require("express");
-const app = express();
-app.use(express.json());
+const username = "admin";
+const password = "12345";
 
-app.post("/login", (req, res) => {
-    try {
-        const { username, password } = req.body;
-        if (!username || !password) {
-            throw new Error("Username and password are required.");
-        }
+try {
+  let inputUser = "admin"; // Change this to test different cases
+  let inputPass = "wrongPass"; // Change this to test different cases
 
-        if (username !== "admin" || password !== "12345") {
-            throw new Error("Invalid credentials.");
-        }
+  if (!inputUser || !inputPass) {
+    throw new Error("Username and password are required.");
+  }
 
-        res.status(200).json({ message: "Login successful!" });
+  if (inputUser !== username || inputPass !== password) {
+    throw new Error("Invalid credentials.");
+  }
 
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-
-    } finally {
-        console.log("Login attempt completed.");
-    }
-});
-
-app.listen(3000, () => console.log("Server running on port 3000"));
-
+  console.log("Login successful!");
+} catch (error) {
+  console.log("An error caught");
+  console.log("Error message: " + error.message);
+} finally {
+  console.log("Finally will execute every time (Login attempt completed).");
+}
