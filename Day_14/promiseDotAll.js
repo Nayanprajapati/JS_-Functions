@@ -1,17 +1,20 @@
+// Base API URL
+const baseURL = "https://dummyjson.com";
+
 // Function to simulate delayed API response with success/failure
-const fetchWithDelay = (url, delay = 2000) => {
+const fetchWithDelay = (endpoint, delay = 2000) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      fetch(url)
+      fetch(`${baseURL}${endpoint}`) // Append endpoint to baseURL
         .then((res) => {
           if (!res.ok) {
-            throw new Error(`Failed to fetch: ${url}`);
+            throw new Error(`Failed to fetch: ${endpoint}`);
           }
           return res.json();
         })
-        .then(resolve)
+        .then(resolve) // Resolve the successful response
         .catch((error) => {
-          reject(`Error fetching ${url}: ${error.message}`);
+          reject(` Error fetching ${endpoint}: ${error.message}`);
         });
     }, delay); // Simulated delay
   });
@@ -20,14 +23,16 @@ const fetchWithDelay = (url, delay = 2000) => {
 // Main function to fetch User Data with Promises & Delay
 async function fetchUserData() {
   try {
-    // Base API URL
-    const baseAPI = "https://dummyjson.com/users";
+    // API Endpoints
+    const userEndpoint = "/users/1"; // User Details
+    const postsEndpoint = "/users/1/posts"; // User Posts
+    const todosEndpoint = "/users/1/todos"; // User To-Dos
 
-    // Fetch User, Posts, and Todos with setTimeout delay using Promise.all
+    // Fetch all data with artificial delays
     const promises = [
-      fetchWithDelay(`${baseAPI}/1`, 2000), // Fetch User with 2s delay
-      fetchWithDelay(`${baseAPI}/1/posts`, 1500), // Fetch Posts with 1.5s delay
-      fetchWithDelay(`${baseAPI}/1/todos`, 3000), // Fetch Todos with 3s delay
+      fetchWithDelay(userEndpoint, 2000), // Fetch User with 2s delay
+      fetchWithDelay(postsEndpoint, 1500), // Fetch Posts with 1.5s delay
+      fetchWithDelay(todosEndpoint, 3000), // Fetch Todos with 3s delay
     ];
 
     // Execute all requests in parallel
