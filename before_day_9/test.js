@@ -77,9 +77,14 @@
 // console.log(obj);
 
 // // using reduce
-let array = [100, 200, 300, 400];
-let answ = array.reduce((acc, curr) => {
-  return acc + curr;
-}, 0);
+// let array = [100, 200, 300, 400];
+// let answ = array.reduce((acc, curr) => {
+//   return acc + curr;
+// }, 0);
 
-console.log(answ);
+// console.log(answ);
+
+
+
+
+
