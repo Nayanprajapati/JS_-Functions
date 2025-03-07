@@ -24,22 +24,29 @@ const fetchWithDelay = (endpoint, delay = 2000) => {
 async function fetchCartData() {
   try {
     // API Endpoints
-    const cartsEndpoint = "/carts"; // Fetch all carts
-    const singleCartEndpoint = "/carts/1"; // Fetch a single cart (Cart ID: 1)
+    const cartsEndpoint = "/carts"; //  Fetch all carts (Valid API)
+    const singleCartEndpoint = "/invalid-endpoint"; //  Intentional failure
+    const anotherCartEndpoint = "/carts/1"; //  Fetch a single cart (Cart ID: 1)
 
     // Fetch all data with artificial delays
     const results = await Promise.allSettled([
       fetchWithDelay(cartsEndpoint, 1500), // Fetch all carts (1.5s delay)
-      fetchWithDelay(singleCartEndpoint, 7000), // Fetch single cart (2s delay)
+      fetchWithDelay(singleCartEndpoint, 2000), //  Invalid API to simulate failure
+      fetchWithDelay(anotherCartEndpoint, 3000), // Fetch a valid cart (3s delay)
     ]);
 
     // Logging all results
     results.forEach((result, index) => {
-      const apiName = index === 0 ? "🛒 All Carts" : " Single Cart (ID:1)";
+      const apiName =
+        index === 0
+          ? " All Carts"
+          : index === 1
+          ? " Invalid API (Intentional Failure)"
+          : " Single Cart (ID:1)";
       if (result.status === "fulfilled") {
-        console.log(`${apiName} (Success):`, result.value);
+        console.log(`${apiName} ( Success):`, result.value);
       } else {
-        console.error(`${apiName} (Failed):`, result.reason);
+        console.error(`${apiName} ( Failed):`, result.reason);
       }
     });
   } catch (error) {
